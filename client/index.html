@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Golb</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="ui container">
+
+      <hello></hello>
+
+      <div class="ui grid">
+        <div class="eight wide column">
+
+
+      <form class="ui form" @submit.prevent='addBlog'>
+        <input type="text" v-model="newBlog.title" placeholder="Title">
+        <input type="text" v-model="newBlog.content" placeholder="Content">
+        <input type="text" v-model="newBlog.author_name" placeholder="Name">
+        <input type="text" v-model="newBlog.author_username" placeholder="Username">
+        <input type="text" v-model="newBlog.author_email" placeholder="Email">
+        <button class="ui button green right floated" type="submit">Create</button>
+
+      </form>
+
+        </div> <!-- column -->
+      </div> <!-- end of ui grid-->
+
+      <div class="ui divider"></div>
+      
+      <div class="ui grid">
+        <div class="four wide column">
+          <button class="ui button" v-on:click="showAll">All</button>
+          <side-menu-bar :blogs="blogs" v-on:showdetail="showBlogDetail"></side-menu-bar>
+        </div>
+
+        <div class="eight wide column">
+          <blog-detail v-for="blog in blogDetails" :blog="blog"></blog-detail>
+        </div>
+      </div>
+
+
+      <script type="text/x-template" id="blogList">
+
+      </script>
+
+    </div> <!-- end of ui container -->
+    </div> <!-- app -->
+
+
+    <script src="./js/vue.js"></script>
+
+  </body>
+</html>
